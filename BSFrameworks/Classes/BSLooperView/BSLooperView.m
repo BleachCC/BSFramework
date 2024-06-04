@@ -101,7 +101,8 @@
 -(void)setCellName:(NSString *)cellName{
     _cellName = cellName;
     /// 注册cell
-    [self.collectionView registerClass:NSClassFromString(cellName) forCellWithReuseIdentifier:cellName];
+//    [self.collectionView registerClass:NSClassFromString(cellName) forCellWithReuseIdentifier:cellName];
+    [self.collectionView registerNib:[UINib nibWithNibName:cellName bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:cellName];
 }
 
 
@@ -531,7 +532,7 @@
         _collectionView.pagingEnabled = YES;
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.showsHorizontalScrollIndicator = NO;
-        _collectionView.backgroundColor = [UIColor whiteColor];
+        _collectionView.backgroundColor = [UIColor clearColor];
     }
     return _collectionView;
 }
